@@ -14,19 +14,18 @@ import java.util.List;
  * @Author by lvdong
  **/
 @RestController
-@RequestMapping("test")
 @ResultResponse
+@RequestMapping("test")
 public class TestController {
     @RequestMapping("first/result")
-
-    public List<String> test(){
+    public String test(){
 //        ResultResponse resultResponse = ResultResponse.success();
         List<String> ad = new ArrayList<String>();
         ad.add("张三");
         ad.add("李四");
         ad.add("王麻子");
         ad.add("卡萨个");
-        return ad;
+        return "ad";
 
     }
 }

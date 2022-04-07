@@ -23,15 +23,13 @@ public class ResultResponseHandlerInterceptor implements HandlerInterceptor {
 
         if(handler instanceof HandlerMethod){
             final HandlerMethod handlerMethod = (HandlerMethod) handler;
-            final Class classz = handlerMethod.getClass();
+            final Class classz = ((HandlerMethod) handler).getBean().getClass();
             final Method method = handlerMethod.getMethod();
-
-            System.out.println(classz.isAnnotationPresent(ResultResponse.class));
-            System.out.println( method.isAnnotationPresent(ResultResponse.class));
             //判断是否在类上增加注解
-            if(classz.isAnnotationPresent(ResultResponse.class) || method.isAnnotationPresent(ResultResponse.class)){
-                System.out.println("进入方法:preHandle");
+            if(classz.isAnnotationPresent(ResultResponse.class)){
                 request.setAttribute(RESULT_RESPONSE_ANN,classz.getAnnotation(ResultResponse.class));
+            } else if(method.isAnnotationPresent(ResultResponse.class)){
+                request.setAttribute(RESULT_RESPONSE_ANN,method.getAnnotation(ResultResponse.class));
             }
         }
         return true;

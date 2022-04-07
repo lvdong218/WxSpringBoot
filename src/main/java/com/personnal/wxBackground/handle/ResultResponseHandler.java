@@ -1,5 +1,7 @@
 package com.personnal.wxBackground.handle;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.personnal.wxBackground.utils.ResultResponseUtils;
 import com.personnal.wxBackground.wxEnum.ResultCode;
 import org.slf4j.Logger;
@@ -36,16 +38,27 @@ public class ResultResponseHandler<V> implements ResponseBodyAdvice<V> {
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
         ServletRequestAttributes serverHttpRequest = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = serverHttpRequest.getRequest();
-        ResultResponseUtils resultResponseUtils = (ResultResponseUtils) request.getAttribute(RESULT_RESPONSE_ANN);
-        System.out.println(resultResponseUtils);
-        System.out.println(resultResponseUtils==null);
-        return resultResponseUtils ==null?false:true;
+        Object obj =  request.getAttribute(RESULT_RESPONSE_ANN);
+        return obj ==null?false:true;
     }
 
     @Override
     public V beforeBodyWrite(V v, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         logger.info("返回body格式化");
-        System.out.println("回写前调用");
+        //指定统一返回类型为json 防止乱码
+        serverHttpResponse.getHeaders().add("Content-Type", "application/json");
+        if(v instanceof String){
+            ObjectMapper mapper = new ObjectMapper();
+
+            try {
+                return (V) mapper.writeValueAsString( new ResultResponseUtils(ResultCode.SUCCESS,v));
+            } catch (JsonProcessingException e) {
+                logger.error("返回值String转换类型错误",e);
+            }
+        }
+        if(v instanceof ResultResponseUtils){
+            return v;
+        }
         return (V) new ResultResponseUtils(ResultCode.SUCCESS,v);
     }
 
