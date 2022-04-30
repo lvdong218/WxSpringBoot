@@ -25,6 +25,9 @@ public class TestController {
         ad.add("李四");
         ad.add("王麻子");
         ad.add("卡萨个");
+        int i=1;
+//        i=1/0;0
+
         return "ad";
 
     }

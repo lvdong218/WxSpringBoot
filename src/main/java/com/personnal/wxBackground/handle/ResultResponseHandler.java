@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.personnal.wxBackground.utils.ResultResponseUtils;
 import com.personnal.wxBackground.wxEnum.ResultCode;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -25,8 +26,8 @@ import javax.servlet.http.HttpServletRequest;
  * @Author by lvdong
  **/
 @ControllerAdvice
+@Slf4j
 public class ResultResponseHandler<V> implements ResponseBodyAdvice<V> {
-    private static final Logger logger = LoggerFactory.getLogger(ResultResponseHandler.class);
     private static final String RESULT_RESPONSE_ANN = "RESULT_RESPONSE_ANN";
     /**
      * 是否包含注解
@@ -44,16 +45,15 @@ public class ResultResponseHandler<V> implements ResponseBodyAdvice<V> {
 
     @Override
     public V beforeBodyWrite(V v, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        logger.info("返回body格式化");
+        log.info("返回body格式化");
         //指定统一返回类型为json 防止乱码
         serverHttpResponse.getHeaders().add("Content-Type", "application/json");
         if(v instanceof String){
             ObjectMapper mapper = new ObjectMapper();
-
             try {
                 return (V) mapper.writeValueAsString( new ResultResponseUtils(ResultCode.SUCCESS,v));
             } catch (JsonProcessingException e) {
-                logger.error("返回值String转换类型错误",e);
+                log.error("返回值String转换类型错误",e);
             }
         }
         if(v instanceof ResultResponseUtils){

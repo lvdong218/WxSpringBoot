@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://121.5.177.166:3307/wx_schema
     username: root
-    password: lv123456
+    password: qweasdzxc218
   redis:
     host: 121.5.177.166
     port: 6380
