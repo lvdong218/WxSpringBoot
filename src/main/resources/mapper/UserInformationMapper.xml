@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnal.wxBackground.mapper.UserInformationMapper">
+
+    <resultMap id="BaseResultMap" type="com.personnal.wxBackground.entity.UserInformation">
+            <id property="id" column="ID" jdbcType="CHAR"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="userId" column="USER_ID" jdbcType="CHAR"/>
+            <result property="idcardno" column="IDCARDNO" jdbcType="CHAR"/>
+            <result property="phoneNumber" column="PHONE_NUMBER" jdbcType="CHAR"/>
+            <result property="photoPath" column="PHOTO_PATH" jdbcType="VARCHAR"/>
+            <result property="deptId" column="DEPT_ID" jdbcType="CHAR"/>
+            <result property="declarationLevel" column="DECLARATION_LEVEL" jdbcType="VARCHAR"/>
+            <result property="majorId" column="MAJOR_ID" jdbcType="CHAR"/>
+            <result property="majorBranchId" column="MAJOR_BRANCH_ID" jdbcType="CHAR"/>
+            <result property="majorReviewId" column="MAJOR_REVIEW_ID" jdbcType="CHAR"/>
+            <result property="categoryId" column="CATEGORY_ID" jdbcType="CHAR"/>
+            <result property="diretionId" column="DIRETION_ID" jdbcType="CHAR"/>
+            <result property="declarationMethod" column="DECLARATION_METHOD" jdbcType="VARCHAR"/>
+            <result property="planId" column="PLAN_ID" jdbcType="CHAR"/>
+            <result property="submitTime" column="SUBMIT_TIME" jdbcType="TIMESTAMP"/>
+            <result property="isTop" column="IS_TOP" jdbcType="INTEGER"/>
+            <result property="status" column="STATUS" jdbcType="INTEGER"/>
+            <result property="delAdminId" column="DEL_ADMIN_ID" jdbcType="CHAR"/>
+            <result property="dis" column="DIS" jdbcType="INTEGER"/>
+            <result property="edit" column="EDIT" jdbcType="INTEGER"/>
+            <result property="del" column="DEL" jdbcType="INTEGER"/>
+            <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="initialReviewStatus" column="INITIAL_REVIEW_STATUS" jdbcType="INTEGER"/>
+            <result property="desensitizationReturnState" column="DESENSITIZATION_RETURN_STATE" jdbcType="INTEGER"/>
+            <result property="desensitizationState" column="DESENSITIZATION_STATE" jdbcType="INTEGER"/>
+            <result property="reviewStatus" column="REVIEW_STATUS" jdbcType="INTEGER"/>
+            <result property="exceptionalState" column="EXCEPTIONAL_STATE" jdbcType="INTEGER"/>
+            <result property="expertReviewState" column="EXPERT_REVIEW_STATE" jdbcType="INTEGER"/>
+            <result property="reasonForReturn" column="REASON_FOR_RETURN" jdbcType="VARCHAR"/>
+            <result property="reasonForRejection" column="REASON_FOR_REJECTION" jdbcType="VARCHAR"/>
+            <result property="initialQualifiedStatus" column="INITIAL_QUALIFIED_STATUS" jdbcType="INTEGER"/>
+            <result property="initialQualifiedContent" column="INITIAL_QUALIFIED_CONTENT" jdbcType="VARCHAR"/>
+            <result property="reviewQualifiedStatus" column="REVIEW_QUALIFIED_STATUS" jdbcType="INTEGER"/>
+            <result property="reviewQualifiedContent" column="REVIEW_QUALIFIED_CONTENT" jdbcType="VARCHAR"/>
+            <result property="exceptionallyConfirmed" column="EXCEPTIONALLY_CONFIRMED" jdbcType="INTEGER"/>
+            <result property="desPhotoPath" column="des_photo_path" jdbcType="VARCHAR"/>
+            <result property="transformStatus" column="transform_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,NAME,USER_ID,
+        IDCARDNO,PHONE_NUMBER,PHOTO_PATH,
+        DEPT_ID,DECLARATION_LEVEL,MAJOR_ID,
+        MAJOR_BRANCH_ID,MAJOR_REVIEW_ID,CATEGORY_ID,
+        DIRETION_ID,DECLARATION_METHOD,PLAN_ID,
+        SUBMIT_TIME,IS_TOP,STATUS,
+        DEL_ADMIN_ID,DIS,EDIT,
+        DEL,CREATE_TIME,UPDATE_TIME,
+        INITIAL_REVIEW_STATUS,DESENSITIZATION_RETURN_STATE,DESENSITIZATION_STATE,
+        REVIEW_STATUS,EXCEPTIONAL_STATE,EXPERT_REVIEW_STATE,
+        REASON_FOR_RETURN,REASON_FOR_REJECTION,INITIAL_QUALIFIED_STATUS,
+        INITIAL_QUALIFIED_CONTENT,REVIEW_QUALIFIED_STATUS,REVIEW_QUALIFIED_CONTENT,
+        EXCEPTIONALLY_CONFIRMED,des_photo_path,transform_status
+    </sql>
+</mapper>

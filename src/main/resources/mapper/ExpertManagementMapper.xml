@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnal.wxBackground.mapper.ExpertManagementMapper">
+
+    <resultMap id="BaseResultMap" type="com.personnal.wxBackground.entity.ExpertManagement">
+            <id property="id" column="ID" jdbcType="CHAR"/>
+            <result property="userid" column="USERID" jdbcType="CHAR"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="gender" column="GENDER" jdbcType="VARCHAR"/>
+            <result property="age" column="AGE" jdbcType="INTEGER"/>
+            <result property="nation" column="NATION" jdbcType="VARCHAR"/>
+            <result property="numId" column="NUM_ID" jdbcType="CHAR"/>
+            <result property="mobile" column="MOBILE" jdbcType="CHAR"/>
+            <result property="phone" column="PHONE" jdbcType="VARCHAR"/>
+            <result property="employer" column="EMPLOYER" jdbcType="CHAR"/>
+            <result property="birthday" column="BIRTHDAY" jdbcType="TIMESTAMP"/>
+            <result property="technicalTitle" column="TECHNICAL_TITLE" jdbcType="VARCHAR"/>
+            <result property="getTime" column="GET_TIME" jdbcType="TIMESTAMP"/>
+            <result property="highestTitle" column="HIGHEST_TITLE" jdbcType="VARCHAR"/>
+            <result property="workDept" column="WORK_DEPT" jdbcType="VARCHAR"/>
+            <result property="branchMajor" column="BRANCH_MAJOR" jdbcType="VARCHAR"/>
+            <result property="imgPath" column="IMG_PATH" jdbcType="VARCHAR"/>
+            <result property="education" column="EDUCATION" jdbcType="VARCHAR"/>
+            <result property="engagedProfessional" column="ENGAGED_PROFESSIONAL" jdbcType="VARCHAR"/>
+            <result property="presentPost" column="PRESENT_POST" jdbcType="VARCHAR"/>
+            <result property="bankAccount" column="BANK_ACCOUNT" jdbcType="VARCHAR"/>
+            <result property="bankOfDeposit" column="BANK_OF_DEPOSIT" jdbcType="VARCHAR"/>
+            <result property="bankNumber" column="BANK_NUMBER" jdbcType="VARCHAR"/>
+            <result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
+            <result property="status" column="STATUS" jdbcType="INTEGER"/>
+            <result property="auditStatus" column="AUDIT_STATUS" jdbcType="INTEGER"/>
+            <result property="rejection" column="REJECTION" jdbcType="VARCHAR"/>
+            <result property="frequency" column="FREQUENCY" jdbcType="VARCHAR"/>
+            <result property="facestatus" column="FACESTATUS" jdbcType="INTEGER"/>
+            <result property="ident" column="IDENT" jdbcType="INTEGER"/>
+            <result property="userInfoId" column="user_info_id" jdbcType="CHAR"/>
+            <result property="planId" column="plan_id" jdbcType="CHAR"/>
+            <result property="evaluationTime" column="evaluation_time" jdbcType="VARCHAR"/>
+            <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,USERID,NAME,
+        GENDER,AGE,NATION,
+        NUM_ID,MOBILE,PHONE,
+        EMPLOYER,BIRTHDAY,TECHNICAL_TITLE,
+        GET_TIME,HIGHEST_TITLE,WORK_DEPT,
+        BRANCH_MAJOR,IMG_PATH,EDUCATION,
+        ENGAGED_PROFESSIONAL,PRESENT_POST,BANK_ACCOUNT,
+        BANK_OF_DEPOSIT,BANK_NUMBER,REMARKS,
+        STATUS,AUDIT_STATUS,REJECTION,
+        FREQUENCY,FACESTATUS,IDENT,
+        user_info_id,plan_id,evaluation_time,
+        CREATE_TIME,UPDATE_TIME
+    </sql>
+</mapper>

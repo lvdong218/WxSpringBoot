@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnal.wxBackground.mapper.ReviewPlanMapper">
+
+    <resultMap id="BaseResultMap" type="com.personnal.wxBackground.entity.ReviewPlan">
+            <id property="id" column="ID" jdbcType="CHAR"/>
+            <result property="name" column="NAME" jdbcType="VARCHAR"/>
+            <result property="year" column="YEAR" jdbcType="VARCHAR"/>
+            <result property="personStartTime" column="PERSON_START_TIME" jdbcType="TIMESTAMP"/>
+            <result property="personEndTime" column="PERSON_END_TIME" jdbcType="TIMESTAMP"/>
+            <result property="editStartTime" column="EDIT_START_TIME" jdbcType="TIMESTAMP"/>
+            <result property="editEndTime" column="EDIT_END_TIME" jdbcType="TIMESTAMP"/>
+            <result property="orgStartTime" column="ORG_START_TIME" jdbcType="TIMESTAMP"/>
+            <result property="orgEndTime" column="ORG_END_TIME" jdbcType="TIMESTAMP"/>
+            <result property="payStartTime" column="PAY_START_TIME" jdbcType="TIMESTAMP"/>
+            <result property="payEndTime" column="PAY_END_TIME" jdbcType="TIMESTAMP"/>
+            <result property="qualificationStartTime" column="QUALIFICATION_START_TIME" jdbcType="TIMESTAMP"/>
+            <result property="qualificationEndTime" column="QUALIFICATION_END_TIME" jdbcType="TIMESTAMP"/>
+            <result property="authorId" column="AUTHOR_ID" jdbcType="CHAR"/>
+            <result property="status" column="STATUS" jdbcType="INTEGER"/>
+            <result property="scheduleStatus" column="SCHEDULE_STATUS" jdbcType="INTEGER"/>
+            <result property="assistantScoreLine" column="ASSISTANT_SCORE_LINE" jdbcType="FLOAT"/>
+            <result property="assistantScoreLineOutside" column="ASSISTANT_SCORE_LINE_OUTSIDE" jdbcType="FLOAT"/>
+            <result property="intermediateScoreLine" column="INTERMEDIATE_SCORE_LINE" jdbcType="FLOAT"/>
+            <result property="intermediateScoreLineOutside" column="INTERMEDIATE_SCORE_LINE_OUTSIDE" jdbcType="FLOAT"/>
+            <result property="advancedScoreLine" column="ADVANCED_SCORE_LINE" jdbcType="FLOAT"/>
+            <result property="advancedScoreLineOutside" column="ADVANCED_SCORE_LINE_OUTSIDE" jdbcType="FLOAT"/>
+            <result property="delAdminId" column="DEL_ADMIN_ID" jdbcType="CHAR"/>
+            <result property="dis" column="DIS" jdbcType="INTEGER"/>
+            <result property="edit" column="EDIT" jdbcType="INTEGER"/>
+            <result property="del" column="DEL" jdbcType="INTEGER"/>
+            <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="planType" column="plan_type" jdbcType="TINYINT"/>
+            <result property="unitPermissionStatus" column="unit_permission_status" jdbcType="TINYINT"/>
+            <result property="memberScoreLine" column="member_score_line" jdbcType="FLOAT"/>
+            <result property="memberScoreLineOutside" column="member_score_line_outside" jdbcType="FLOAT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,NAME,YEAR,
+        PERSON_START_TIME,PERSON_END_TIME,EDIT_START_TIME,
+        EDIT_END_TIME,ORG_START_TIME,ORG_END_TIME,
+        PAY_START_TIME,PAY_END_TIME,QUALIFICATION_START_TIME,
+        QUALIFICATION_END_TIME,AUTHOR_ID,STATUS,
+        SCHEDULE_STATUS,ASSISTANT_SCORE_LINE,ASSISTANT_SCORE_LINE_OUTSIDE,
+        INTERMEDIATE_SCORE_LINE,INTERMEDIATE_SCORE_LINE_OUTSIDE,ADVANCED_SCORE_LINE,
+        ADVANCED_SCORE_LINE_OUTSIDE,DEL_ADMIN_ID,DIS,
+        EDIT,DEL,CREATE_TIME,
+        UPDATE_TIME,plan_type,unit_permission_status,
+        member_score_line,member_score_line_outside
+    </sql>
+</mapper>

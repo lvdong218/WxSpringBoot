@@ -37,7 +37,22 @@ public class ResultResponseUtils<V> implements Serializable {
         return new ResultResponseUtils(ResultCode.SUCCESS,null);
     }
 
+    public static <V> ResultResponseUtils success(V data){
+        return new ResultResponseUtils(ResultCode.SUCCESS,data);
+    }
+
     public static ResultResponseUtils fail(){
         return new ResultResponseUtils(ResultCode.FAIL,null);
+    }
+
+    public static <V> ResultResponseUtils fail(V data){
+        return new ResultResponseUtils(ResultCode.FAIL,data);
+    }
+
+    public static <V> ResultResponseUtils failToken(V data){
+        return new ResultResponseUtils(ResultCode.TOKEN,data);
+    }
+    public static ResultResponseUtils failToken(){
+        return new ResultResponseUtils(ResultCode.TOKEN,null);
     }
 }

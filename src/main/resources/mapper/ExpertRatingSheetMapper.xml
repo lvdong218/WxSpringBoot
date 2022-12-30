@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnal.wxBackground.mapper.ExpertRatingSheetMapper">
+
+    <resultMap id="BaseResultMap" type="com.personnal.wxBackground.entity.ExpertRatingSheet">
+            <id property="id" column="ID" jdbcType="CHAR"/>
+            <result property="userInfoId" column="USER_INFO_ID" jdbcType="CHAR"/>
+            <result property="expertId" column="EXPERT_ID" jdbcType="CHAR"/>
+            <result property="score" column="SCORE" jdbcType="FLOAT"/>
+            <result property="reason" column="REASON" jdbcType="VARCHAR"/>
+            <result property="status" column="STATUS" jdbcType="INTEGER"/>
+            <result property="mainScore" column="MAIN_SCORE" jdbcType="FLOAT"/>
+            <result property="resultsScore" column="RESULTS_SCORE" jdbcType="FLOAT"/>
+            <result property="abilityScore" column="ABILITY_SCORE" jdbcType="FLOAT"/>
+            <result property="theoryScore" column="THEORY_SCORE" jdbcType="FLOAT"/>
+            <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,USER_INFO_ID,EXPERT_ID,
+        SCORE,REASON,STATUS,
+        MAIN_SCORE,RESULTS_SCORE,ABILITY_SCORE,
+        THEORY_SCORE,CREATE_TIME
+    </sql>
+    <select id="export" resultType="com.personnal.wxBackground.vo.ExpertRatingSheetExcel">
+        select ers.ID as id,ui.IDCARDNO as idcardno,ui.NAME name,su.NAME expert_name,su.IDCARDNO as expert_idcard,rpt.ID as batch_id,rpt.BATCH_STR as batch_str from expert_rating_sheet ers
+        left join user_information ui on ers.USER_INFO_ID = ui.ID
+        left join sys_user su on su.ID = ers.EXPERT_ID
+        left join expert_management em on em.USERID = su.ID
+        left join expert_distribution ed on ed.USER_INFO_ID = ers.USER_INFO_ID and em.ID = ed.EXPERT_ID
+        left join review_plan_expert_time rpt on rpt.ID = ed.BATCH
+    </select>
+
+
+</mapper>

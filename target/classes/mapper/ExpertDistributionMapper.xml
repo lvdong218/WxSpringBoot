@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnal.wxBackground.mapper.ExpertDistributionMapper">
+
+    <resultMap id="BaseResultMap" type="com.personnal.wxBackground.entity.ExpertDistribution">
+            <id property="expertId" column="EXPERT_ID" jdbcType="CHAR"/>
+            <id property="userInfoId" column="USER_INFO_ID" jdbcType="CHAR"/>
+            <id property="batch" column="BATCH" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        EXPERT_ID,USER_INFO_ID,BATCH
+    </sql>
+</mapper>
