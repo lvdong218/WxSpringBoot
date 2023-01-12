@@ -4,6 +4,9 @@ import com.personnal.wxBackground.annotate.ResultResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +33,24 @@ public class TestController {
 
         return "ad";
 
+    }
+
+    public static void main(String[] args) {
+        try {
+            Socket sock = new Socket("127.0.0.1",2500 );
+            byte[] bys = new byte[5];
+            bys[0]=0;
+            bys[1]=1;
+            bys[2]=2;
+            bys[3]=3;
+            bys[4]=4;
+//            bys[5]=5;
+            OutputStream out = sock.getOutputStream();
+            out.write(bys);
+            out.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
